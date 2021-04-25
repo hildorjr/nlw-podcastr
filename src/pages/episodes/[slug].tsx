@@ -33,6 +33,13 @@ export default function Episode({ episode }: EpisodeProps) {
         <div className={styles.episode}>
             <Head>
                 <title>{episode.title} | Podcastr</title>
+                <meta name="description" content={episode.description} />
+                <meta property="og:description" content={episode.description} />
+                <meta property="og:title" content={episode.title} />
+                <meta property="og:image" content={episode.thumbnail} />
+                <meta property="og:image:type" content="image/jpg" />
+                <meta property="og:image:width" content="750" />
+                <meta property="og:image:height" content="422" />
             </Head>
             <div className={styles.thumbnailContainer}>
                 <Link href="/">
