@@ -35,7 +35,7 @@ type PlayerContextProviderProps = {
 }
 
 export function PlayerContextProvider({ children }: PlayerContextProviderProps) {
-    const [episodeList, setEpisodeList] = useState([])
+    const [episodeList, setEpisodeList] = useState<Episode[]>([])
     const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0)
     const [isPlaying, setIsPlaying] = useState(false)
     const [isLooping, setIsLooping] = useState(false)

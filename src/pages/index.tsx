@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Head from 'next/head'
 import { format, parseISO } from 'date-fns'
-import ptBR from 'date-fns/locale/pt-BR'
+import { ptBR } from 'date-fns/locale/pt-BR'
 import { api } from '../services/api'
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString'
 import styles from './home.module.scss'
@@ -48,12 +48,12 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                   height={192}
                   src={ep.thumbnail}
                   alt={ep.title}
-                  objectFit="cover"
+                  style={{ objectFit: 'cover' }}
                 />
 
                 <div className={styles.episodeDetails}>
                   <Link href={`/episodes/${ep.id}`}>
-                    <a>{ep.title}</a>
+                    {ep.title}
                   </Link>
                   <p>{ep.members}</p>
                   <span>{ep.publishedAt}</span>
@@ -92,12 +92,12 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                         height={120}
                         src={ep.thumbnail}
                         alt={ep.title}
-                        objectFit="cover"
+                        style={{ objectFit: 'cover' }}
                       />
                     </td>
                     <td>
                       <Link href={`/episodes/${ep.id}`}>
-                        <a>{ep.title}</a>
+                        {ep.title}
                       </Link>
                     </td>
                     <td>{ep.members}</td>
@@ -130,7 +130,7 @@ export const getStaticProps: GetStaticProps = async () => {
       _order: 'desc'
     }
   })
-  const episodes = data.map(ep => {
+  const episodes = data.map((ep: any) => {
     return {
       id: ep.id,
       title: ep.title,

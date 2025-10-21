@@ -9,18 +9,19 @@
     "server": "json-server server.json -w -d 750 -p 3333"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "date-fns": "^2.21.1",
-    "next": "10.1.3",
-    "rc-slider": "^9.7.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "sass": "^1.32.11"
+    "axios": "^1.7.7",
+    "date-fns": "^4.1.0",
+    "next": "^15.1.0",
+    "rc-slider": "^10.4.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sass": "^1.83.0"
   },
   "devDependencies": {
-    "@types/node": "^14.14.41",
-    "@types/react": "^17.0.3",
-    "json-server": "^0.16.3",
-    "typescript": "^4.2.4"
+    "@types/node": "^22.10.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "json-server": "^0.17.4",
+    "typescript": "^5.7.2"
   }
 }

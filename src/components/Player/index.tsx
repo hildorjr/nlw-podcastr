@@ -44,15 +44,20 @@ export function Player() {
     }, [isPlaying])
 
     function setupProgressListener() {
+        if (!audioRef.current) return
         audioRef.current.currentTime = 0
         audioRef.current.addEventListener('timeupdate', () => {
-            setProgress(Math.floor(audioRef.current.currentTime))
+            if (audioRef.current) {
+                setProgress(Math.floor(audioRef.current.currentTime))
+            }
         })
     }
 
-    function handleSeeek(amount: number) {
-        audioRef.current.currentTime = amount
-        setProgress(amount)
+    function handleSeeek(amount: number | number[]) {
+        if (!audioRef.current) return
+        const value = Array.isArray(amount) ? amount[0] : amount
+        audioRef.current.currentTime = value
+        setProgress(value)
     }
 
     function handleEpisodeEnded() {
@@ -78,7 +83,8 @@ export function Player() {
                         width={592}
                         height={592}
                         src={episode.thumbnail}
-                        objectFit="cover"
+                        alt={episode.title}
+                        style={{ objectFit: 'cover' }}
                     />
                     <strong>{episode.title}</strong>
                     <span>{episode.members}</span>
